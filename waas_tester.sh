@@ -1,4 +1,3 @@
-"waas_tester.sh" 29L, 827C                                                                                                                                            1,1           All
 echo "testing SQLi attack"
 curl 10.96.153.213?id=%25%27+and+1%3D0+union+select+null%2C+table_name+from+information_schema.tables+%23&Submit=Submit
 if test "$status" == "0"; then
