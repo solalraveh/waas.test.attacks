@@ -26,4 +26,5 @@ curl 10.96.153.213 --referer "() { :; }; ping -c 3 209.126.230.74"
 echo "testing Malformed HTTP Request attack"
 curl -X GET 10.96.153.213 -d "echo 'hello'"
 
-echo ""
+echo "Testing DoS protection. (Remember to tweak the DoS settings...)"
+for i in {1..51}; do curl 10.96.153.213; done
