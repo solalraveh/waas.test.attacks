@@ -12,7 +12,7 @@ echo "testing XSS attack"
 curl 10.96.153.213 -d "<script>alert(1);</script>"
 
 echo "testing OS Command Injection attack"
-curl 10.96.153.213 -h "?id=& echo aiwefwlguh &"
+curl 10.96.153.213 -d "?id=& echo aiwefwlguh &"
 
 echo "testing Code Injection attack"
 curl 10.96.153.213 -d "?arg=1; phpinfo()"
@@ -24,6 +24,6 @@ echo "testing Shellshock Protection"
 curl 10.96.153.213 --referer "() { :; }; ping -c 3 209.126.230.74"
 
 echo "testing Malformed HTTP Request attack"
-curl 10.96.153.213
+curl -X GET 10.96.153.213 -d "echo 'hello'"
 
 echo ""
