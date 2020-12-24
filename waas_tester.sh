@@ -12,7 +12,7 @@ echo "testing XSS attack"
 curl 10.96.153.213 -d "<script>alert(1);</script>"
 
 echo "testing OS Command Injection attack"
-curl 10.96.153.213 -d "?id=& echo aiwefwlguh &"
+curl 10.96.153.213 -H "X-Original-Uri: /?id=&%20echo%20aiwefwlguh%20&"
 
 echo "testing Code Injection attack"
 curl 10.96.153.213 -d "?arg=1; phpinfo()"
